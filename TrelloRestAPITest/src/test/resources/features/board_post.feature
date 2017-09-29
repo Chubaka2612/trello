@@ -1,6 +1,7 @@
 Feature: Testing POST Service. Board Component
 
-@10
+@Board
+@Post
 @RemoveBoard
 Scenario Outline: Verify that user is able to create new single board with valid name and is not able to create board with invalid name
 POST /boards/
@@ -12,7 +13,8 @@ POST /boards/
 	| !@#$%^&*   | present |
 	|            | absent  |
 	
-@11
+@Board
+@Post
 Scenario Outline: Verify that user is able to create new list on the board with valid name and can't create list with invalid name
 POST /boards/{id}/lists
 	When I create new list with name <listName> on board with ID <boardID>
@@ -23,7 +25,8 @@ POST /boards/{id}/lists
 	| 59a6cb31f3071d7b78dc1847   | !@$#%^&* | present |
 	| 59a6cb31f3071d7b78dc1847   |          | absent  |
 
-@12
+@Board
+@Post
 @RemoveBoard
 Scenario Outline: Verify that user is able to create two board with the same name
 POST /boards/
