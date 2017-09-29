@@ -1,14 +1,14 @@
-@Board
 Feature: Board
   As a registered user
   I want to interact with boards
-  
+
+@Board  
+@Get
 Scenario: Verify that user is able to get an existing board by ID and is not able to get board by invalid ID GET /boards/{id}
 	When I get board by ID 123
 	Then I should see board with ID 123 is absent
 
-	  
-@1
+@Get
 Scenario Outline: Verify that user is able to get an existing board by ID and is not able to get board by invalid ID
 GET /boards/{id}
 	When I get board by ID <boardID>
